@@ -21,10 +21,13 @@ public class Course implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(name = "name")
 	private String name;
+	
 	@Column(name = "img_Uri")
 	private String imgUri;
+	
 	@Column(name = "img_Gray_Uri")
 	private String imgGrayUri; 
 	

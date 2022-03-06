@@ -20,9 +20,13 @@ public class Section implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	private String title;
+	
 	private String description;
+	
 	private Integer position;
+	
 	@Column(name = "img_Uri")
 	private String imgUri;
 	

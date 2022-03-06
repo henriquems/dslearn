@@ -24,11 +24,14 @@ public class Offer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(name = "edition")
 	private String edition;
-	@Column(name = "start_Moment")
+	
+	@Column(name = "start_Moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant startMoment;
-	@Column(name = "end_Moment")
+	
+	@Column(name = "end_Moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant endMoment;
 	
 	@ManyToOne
