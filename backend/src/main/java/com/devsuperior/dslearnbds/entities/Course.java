@@ -3,9 +3,7 @@ package com.devsuperior.dslearnbds.entities;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,15 +19,9 @@ public class Course implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	@Column(name = "name")
 	private String name;
-	
-	@Column(name = "img_Uri")
 	private String imgUri;
-	
-	@Column(name = "img_Gray_Uri")
-	private String imgGrayUri; 
+	private String imgGrayUri;
 	
 	@OneToMany(mappedBy = "course")
 	private List<Offer> offers = new ArrayList<>();
@@ -38,6 +30,7 @@ public class Course implements Serializable {
 	}
 
 	public Course(Long id, String name, String imgUri, String imgGrayUri) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.imgUri = imgUri;
@@ -82,7 +75,10 @@ public class Course implements Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -94,7 +90,11 @@ public class Course implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Course other = (Course) obj;
-		return Objects.equals(id, other.id);
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
-
 }

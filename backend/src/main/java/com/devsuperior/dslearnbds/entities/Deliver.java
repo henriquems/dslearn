@@ -29,10 +29,7 @@ public class Deliver implements Serializable {
 	private Instant moment;
 	
 	private DeliverStatus status;
-	
 	private String feedback;
-	
-	@Column(name = "correct_Count")
 	private Integer correctCount;
 	
 	@ManyToOne

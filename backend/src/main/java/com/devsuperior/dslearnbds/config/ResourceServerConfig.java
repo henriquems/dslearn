@@ -30,14 +30,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		//Liberar acesso ao H2
-		if(Arrays.asList(env.getActiveProfiles()).contains("test")) {
+
+		// H2
+		if (Arrays.asList(env.getActiveProfiles()).contains("test")) {
 			http.headers().frameOptions().disable();
 		}
 		
 		http.authorizeRequests()
-			.antMatchers(PUBLIC).permitAll()
-			.anyRequest().authenticated();
-	}
-	
+		.antMatchers(PUBLIC).permitAll()
+		.anyRequest().authenticated();
+	}	
 }

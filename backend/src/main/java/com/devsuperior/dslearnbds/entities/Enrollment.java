@@ -22,15 +22,12 @@ public class Enrollment {
 	@EmbeddedId
 	private EnrollmentPK id = new EnrollmentPK();
 	
-	@Column(name = "enroll_Moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant enrollMoment;
 
-	@Column(name = "refund_Moment", columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
 	private Instant refundMoment;
-	
 	private boolean available;
-	
-	@Column(name = "only_Update")
 	private boolean onlyUpdate;
 
 	@ManyToMany(mappedBy = "enrollmentsDone")

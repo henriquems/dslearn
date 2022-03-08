@@ -12,13 +12,8 @@ public class Task extends Lesson {
 	private static final long serialVersionUID = 1L;
 
 	private String description;
-	
-	@Column(name = "question_Count")
 	private Integer questionCount;
-	
-	@Column(name = "approval_Count")
 	private Integer approvalCount;
-	
 	private Double weight;
 	
 	@Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")	
